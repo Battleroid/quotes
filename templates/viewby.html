@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block header %}
+	{{ author }}
+{% endblock %}
+{% block main %}
+{% if quotes %}
+<p><strong>{{ author }}</strong> has <strong>{{ total }}</strong> {% if total == 1 %}quote{% else %}quotes{% endif %}.</p>
+<div id="quotes">
+	<ul class="quotes">
+		{% for quote in quotes %}
+		<li>
+			<a name="{{ quote.id|safe }}"></a>
+			<blockquote>
+				<p>
+					{{ quote.quote|safe }}
+				</p>
+				<footer>
+					<cite>
+						<a href="{{ url_for('view_by', username=quote.author) }}">{{ quote.author|safe }}</a>, <a href="{{ url_for('view_id', id=quote.id) }}">No. {{ quote.id }}</a>, {{ quote.created|datetimefmt }}
+					</cite>
+				</footer>
+			</blockquote>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+{% else %}
+<p>Nothing by {{ author }} quotes!</p>
+{% endif %}
+{% endblock %}
+

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block header %}
+All Quotes
+{% endblock %}
+{% block main %}
+{% if quotes %}
+{% for key, val in unique.items() %}
+{% set unique_count = val %}
+<p>Total of {% if total == 1 %}only <strong>1</strong> quote.{% else %}<strong>{{ total }}</strong> quotes{% endif %}, with {% if unique_count == 1 %}<strong>one</strong> author{% else %}<strong>{{ unique_count }}</strong> authors{% endif %}.</p>
+<div id="quotes">
+	<ul class="quotes">
+		{% for quote in quotes %}
+		<li>
+			<a name="{{ quote.id|safe }}"></a>
+			<blockquote>
+				<p>
+					{{ quote.quote|safe }}
+				</p>
+				<footer>
+					<cite>
+						<a href="{{ url_for('view_by', username=quote.author) }}">{{ quote.author|safe }}</a>, <a href="{{ url_for('view_id', id=quote.id) }}">No. {{ quote.id }}</a>, {{ quote.created|datetimefmt }}
+					</cite>
+				</footer>
+			</blockquote>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endfor %}
+{% else %}
+<p>No quotes!</p>
+{% endif %}
+{% endblock %}

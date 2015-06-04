@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+	<script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".message").delay(1000).fadeOut("slow");
+		});
+	</script>
+</head>
+<body>
+	<div class="brand">
+		<div class="wrapper">
+			<header>
+				<h1>{% block header %}{% endblock %}</h1>
+				<ul class="nav">
+					<li><a href="{{ url_for('view') }}">Quotes</a></li>
+					<li><a title="Yes goy!" href="{{ url_for('buy') }}">Buy</a></li>
+				</ul>
+			</header>
+		</div>
+	</div>
+	<main>
+		<div class="wrapper">
+			{% with messages = get_flashed_messages(with_categories=false) %}
+				{% if messages %}
+					<div class="messages">
+						<ul>
+							{% for message in messages %}
+							<li class="message">{{ message }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endif %}
+			{% endwith %}
+			{% block main %}
+			{% endblock %}
+		<footer id="credit">
+			Created for WeVidyaNow by <a href="http://caseyweed.net">Battleroid</a>
+		</footer>
+		</div>
+	</main>
+</body>
+</html>

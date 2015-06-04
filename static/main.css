@@ -1,0 +1,201 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800);
+
+body {
+	font: 13px/2em "Open Sans", "Helvetica Neue", Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+}
+
+hr {
+	margin: 25px 0px;
+	margin-top: 35px;
+	border: none;
+	border-top: 1px solid #eee;
+}
+
+.wrapper {
+	font-size: 115%;
+	max-width: 480px;
+	margin: 0px auto;
+}
+
+main {
+	margin-top: 80px;
+}
+
+.brand {
+	top: 0px;
+	background: rgb(93,93,93);
+	width: 100%;
+	position: fixed;
+}
+
+header {
+	margin-top: 10px
+	margin-bottom: 10px;
+	padding: 20px 0;
+	text-shadow: 0px 1px 0px #000;
+}
+
+header h1 {
+	color: #fff;
+	display: inline;
+	font-size: 150%;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+}
+
+header ul {
+	list-style-type: none;
+	display: table;
+	margin: 0;
+	padding: 0;
+	float: right;
+	clear: both;
+}
+
+header li {
+	display: block;
+	margin-left: 30px;
+	float: left;
+}
+
+header li a {
+	color: #fff;
+	letter-spacing: 3px;
+	display: block;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+header li a:hover {
+	text-decoration: underline;
+}
+
+main ul.quotes {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+blockquote {
+	padding: 5px 20px;
+	margin: 10px 0;
+	background: #eee;
+	border-radius: 3px;
+	border-right: 3px solid rgba(0,0,0,0.2);
+	border-bottom: 3px solid rgba(0,0,0,0.2);
+}
+
+blockquote p {
+	margin: 5px auto;
+}
+
+blockquote a {
+	text-decoration: none;
+	color: #000;
+}
+
+blockquote cite, blockquote cite a {
+	color: rgb(150,150,150);
+}
+
+blockquote cite:after {
+	content: " —";
+}
+
+blockquote footer {
+	display: block;
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+blockquote p span {
+	display: inline-block;
+}
+
+dt, dd {
+	margin: 0;
+}
+
+dd {
+	margin-bottom: 10px;
+}
+
+input {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 100%;
+	font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.messages {
+	padding-top: 5px;
+}
+
+.messages ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.messages li {
+	background: #C3FF68;
+	border-left: 3px solid rgb(145,205,56);
+	padding: 7px 10px;
+	border-radius: 3px;
+}
+
+
+code {
+	background: #eee;
+	padding: 3px 5px;
+	border-radius: 3px;
+	font-family: Consolas, "Source Code Mono", Menlo, "Courier New", monospace;
+}
+
+main a {
+	text-decoration: none;
+	color: #cc3f3f;
+}
+
+main a:hover {
+	color: #a32424;
+	text-decoration: underline;
+}
+
+main footer#credit {
+	font-size: 80%;
+	border-top: 1px solid #eee;
+	margin-top: 25px;
+	text-align: center;
+	padding: 10px 0;
+	width: 480px;
+	color: #a0a0a0;
+}
+
+main footer#credit a {
+	text-decoration: none;
+	color: #a0a0a0;
+}
+
+main footer#credit a:hover {
+	text-decoration: underline;
+}
+
+.spoiler {
+	padding: 0px 5px;
+	border-radius: 3px;
+	background: #000;
+	color: #000;
+}
+
+.spoiler:hover {
+	color: #fff;
+}

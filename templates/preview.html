@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block header %}
+	Preview Quote
+{% endblock %}
+{% block main %}
+<p>Submit your comment to preview what it would look like on publish. BBcode is acceptable and <strong>does not</strong> count towards your character count. Please let me know if any codes do not come out as planned or spew out weird symbols. Use tags such as:</p>
+<ul>
+	<li><code>[color red]<span title="rip lawlle" style="color: red;">This would be red.</span>[/color]</code></li>
+	<li><code>[color #a0a0a0]<span title="double rip lawlle" style="color: #a0a0a0;">This would be grey.</span>[/color]</code></li>
+	<li><code>[spoiler]<span class="spoiler">this is spoilered</span>[/spoiler]</code></li>
+</ul>
+<form action="{{ url_for('preview') }}" method="post">
+	{% from "macros.html" import render_field %}
+	{{ form.hidden_tag() }}
+	<dl>
+		{{ render_field(form.quote) }}
+		{{ render_field(form.author)  }}
+	</dl>
+	<input type="submit" value="Update Preview">
+</form>
+{% if preview %}
+<hr></hr>
+<p>Preview:</p>
+<blockquote>
+	<p>{{ preview.quote|safe }}</p>
+	<footer>
+		<cite>{{ preview.author }}, {{ preview.now|datetimefmt }}</cite>
+	</footer>
+</blockquote>
+{% endif %}
+{% endblock %}

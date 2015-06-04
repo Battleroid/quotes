@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block header %}
+	Buy
+{% endblock %}
+{% block main %}
+<h3>What can I do?</h3>
+<p>Submit a quote to our rotating banner head. Read below before submitting yours.</p>
+<ul>
+	<li>No HTML, PHP, etc it won't work anyway.</li>
+	<li><strong>140 characters</strong> or less.</li>
+	<li>You can leave your name blank, you'll just appear as anonymous.</li>
+	<li>You can use BBcode, use the preview to make sure you nail the look beforehand.</li>
+</ul>
+<h3>Why buy this?</h3>
+<p>By purchasing a quote you help pay for our servers and/or eventually give us the ability to upgrade to better hardware, run more services, etc.</p>
+<p>I also plan to improve the little JSON API that it runs and integrate the quotes in other things we run.</p>
+<h3>How secure is this?</h3>
+<p>I never see your payment information, nor do I handle the payment. Stripe handles all the payment processing, all I get in return is a token that represents your transaction which I use to verify and submit the charge <strong>after</strong> the form successfully validates. Meaning you won't be charged if your quote does not pass validation.</p>
+<p>Want to try before you buy? <a href="{{ url_for('preview') }}">Preview your quote here</a>.
+<form action="{{ url_for('buy') }}" method="post">
+	{% from "macros.html" import render_field %}
+	{{ form.hidden_tag() }}
+	<dl>
+		{{ render_field(form.quote) }}
+		{{ render_field(form.author) }}
+	</dl>
+	<script
+		src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+		data-key=""
+		data-amount="100"
+		data-name="WeVidyaNow"
+		data-description="1 Quote ($1)"
+		data-image="{{ url_for('static', filename='wvn.png') }}">
+	</script>
+</form>
+{% endblock %}
