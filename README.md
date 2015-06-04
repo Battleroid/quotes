@@ -13,3 +13,7 @@ You will also to use pip (or pip with virtualenv) to install the requirements: `
 3. Replace the public Stripe API key in the `buy.html` template (`data-key`).
 
 Then run it. That's it. My old supervisor configuration file is included for the hell of it.
+
+# (working) example
+
+![example video](quotes.webm)
