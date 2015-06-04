@@ -16,4 +16,6 @@ Then run it. That's it. My old supervisor configuration file is included for the
 
 # (working) example
 
+![example gif](quotes.gif)
+
 ![example video](quotes.webm)
